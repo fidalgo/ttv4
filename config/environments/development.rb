@@ -45,4 +45,7 @@ Ttv4::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  #Set the available locales
+  config.i18n.available_locales = [:es, :en]
 end

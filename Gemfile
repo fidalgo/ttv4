@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
+#ruby '1.9.3'
 gem 'rails', '3.2.12'
+gem 'rails-i18n', '~> 3.0.0.pre'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -14,7 +15,6 @@ gem 'libv8'
 gem 'mongoid'
 gem 'rolify'
 gem 'simple_form'
-#gem 'sidekiq'
 gem 'twitter'
 gem "sexmachine" # get gender from firstname
 gem 'rufus-scheduler'
@@ -26,7 +26,7 @@ group :assets do
 end
 group :development do
   gem 'better_errors'
-  gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]
+  gem 'binding_of_caller' #, :platforms=>[:mri_19, :rbx]
   gem 'hub', :require=>nil
   gem 'quiet_assets'
   gem 'pry-rails'
