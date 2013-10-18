@@ -1,8 +1,12 @@
 class TermsController < ApplicationController
+
+ before_filter :set_locale
+
   # GET /terms
   # GET /terms.json
   def index
-    @terms = Term.all
+    @user = current_user
+    @terms = @user.terms
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @terms }
@@ -72,13 +76,10 @@ class TermsController < ApplicationController
   # DELETE /terms/1.json
   def destroy
     @term = Term.find(params[:id])
-      
     ## it also deletes the associated tweets
     @tweets = @term.tweets
     @tweets.destroy_all
-
     @term.destroy
-
     respond_to do |format|
       format.html { redirect_to terms_url }
       format.json { head :no_content }
